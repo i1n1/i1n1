@@ -32,7 +32,8 @@ Without the `*_SOURCE_DIR` overrides the repositories are fetched at the commits
 
 - Verified build environment: macOS on arm64, Apple clang 21, CMake 4.4, Ninja, C11, `BUILD_TESTING=OFF`.
   Other hosts and compilers have not been verified for this release.
-- Warnings are errors by default (`-DI1N1_WARNINGS_AS_ERRORS=OFF` relaxes this for other compilers).
+- `-DI1N1_WARNINGS_AS_ERRORS=OFF` relaxes warnings as errors only in participating modules;
+  the engine retains its hardcoded `-Werror` policy and is unaffected by that option.
 - Unsupported instructions, registers or devices are reported as deterministic stops by the source, not
   emulated; this release is a build of that source, not evidence of a working guest.
 
